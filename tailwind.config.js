@@ -9,7 +9,7 @@ module.exports = {
     function ({ addUtilities }) {
       const newUtilities = {
         '.text-stroke': {
-          '-webkit-text-stroke-width': '2px',
+          '-webkit-text-stroke-width': '1px',
           '-webkit-text-stroke-color': '#000',
         },
         '.text-transparent-fill': {
