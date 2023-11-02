@@ -6,7 +6,7 @@ const Header =["About", "Works", "Skills", "Contact"]
 
 function Main() {
   return (
-    <div className="w-[1900px] h-[7184px] relative overflow-hidden bg-white">
+    <div className="w-[1920px] h-[7184px] relative overflow-hidden bg-white">
     <div className='border-b-2 border-black '>
       <ul className='flex justify-center py-10 relative '>
         <li className='absolute left-10 top-[32px] after:absolute after:w-[2px] after:h-[120px] after:bg-black after:-right-[45px] after:-top-10'>
@@ -24,27 +24,32 @@ function Main() {
             )
           })
         }
-      </ul>
-
-  
+      </ul>  
     </div>
-  <img
-    src={process.env.PUBLIC_URL + '/images/Rectangle 3.png'}
-    className="w-[1520px] h-[820px] absolute left-[205px] top-[531px] opacity-80 object-none"
-  />
-  <p className="absolute left-60 top-[165px] text-[150px] font-bold text-left text-[#111]">
-    Front-End
-  </p>
-  <p className="absolute left-[365px] top-[311px] text-[150px] font-bold text-left text-black">
-    Developer
-  </p>
-  <p className="absolute left-[222px] top-[442px] text-[150px] font-bold text-left text-transparent-fill text-stroke">
-    KI Woon
-  </p>
-  <img
+    {/* 헤더끝 */}
+    <div className='w-[1520px] h-[820px] mx-auto my-[] '>      
+      <div className='ml-10'>
+        <p className="text-[150px] font-bold text-left text-[#111]">
+          Front-End
+        </p>
+        <p className=" text-[150px] font-bold text-left text-black leading-4 ml-20">
+          Developer
+          </p>
+        <p className="absolute text-[150px] font-bold text-left text-transparent-fill text-stroke">
+          KI Woon
+        </p>
+      </div>
+      <img src={process.env.PUBLIC_URL + '/images/Rectangle 3.png'}
+        className="mt-[8%]" />
+    </div>
+
+    
+  {/* <img
     src={process.env.PUBLIC_URL + '/images/Rectangle 4.png'}
     className="w-[1520px] h-[820px] absolute left-[205px] top-[2087px] opacity-50 object-none"
-  />
+  /> */}
+
+
   <p className="absolute left-[276px] top-[1446px] text-5xl font-bold text-left text-black">
     ABOUT ME
   </p>
