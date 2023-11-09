@@ -1,21 +1,26 @@
 import React, { useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
+import TypeWriterEffect from 'react-typewriter-effect';
 
 
 const Header =["About", "Works", "Skills", "Contact"]
+const img = ['/images/Rectangle 46.png', '/images/Rectangle 10.png','/images/Rectangle 6.png','/images/Rectangle 47.png','/images/Rectangle 46.png']
 
 function Main() {
   const [isActive, SetIsActive] = useState('hidden');
 
   return (
-    <div className="w-[px] h-[7184px] relative overflow-hidden bg-white">
+    <>
+    
+
+    <div className="w-[px] relative overflow-hidden bg-white">
     <div className='border-b-2 border-black '>
       <ul className='flex justify-center py-10 relative '>
-        <li className='absolute left-10 top-[32px] after:absolute after:w-[2px] after:h-[120px] after:bg-black after:-right-[45px] after:-top-10'>
+        <li className='absolute left-7 top-[32px] after:absolute after:w-[2px] after:h-[120px] after:bg-black after:-right-[32px] after:-top-10'>
         <p className="font-bold">
-          <span className="text-[32px] font-bold text-left text-white text-transparent-fill text-stroke">K.</span>
-          <span className="text-[32px] font-bold text-left text-[#111]">Woon</span>
+          <span className="text-4xl font-bold text-left text-white text-transparent-fill text-stroke">K.</span>
+          <span className="text-4xl font-bold text-left text-[#111]">Woon</span>
         </p>
         </li>
         {
@@ -32,14 +37,52 @@ function Main() {
     {/* 헤더끝 */}
     <div className='w-[1520px] h-auto mx-auto my-[] border-2'>      
       <div className='ml-10'>
-        <p className="text-[150px] font-bold text-left text-[#111]">
-          Front-End
+
+        <p className="text-[150px] font-bold text-left text-[#111] py-5">
+            <TypeWriterEffect
+            textStyle={{ fontFamily: 'Redressed' }}
+            startDelay={500}
+            cursorColor="transparent"
+            multiText={[
+              'Front-End',
+              '프론트 엔드',
+            ]}
+            multiTextDelay={3000}
+            typeSpeed={100}
+            deleteSpeed={50}
+            delaySpeed={1000}
+            multiTextLoop={true}/>          
         </p>
-        <p className=" text-[150px] font-bold text-left text-black leading-4 ml-20">
-          Developer
+        <p className=" text-[150px] font-bold text-left text-black leading-4 ml-20 py-5">
+        <TypeWriterEffect
+            textStyle={{ fontFamily: 'Redressed' }}
+            startDelay={800}
+            cursorColor="transparent"
+            multiText={[
+              'Developer',
+              '개발자',
+            ]}
+            multiTextDelay={3500}
+            typeSpeed={150}
+            deleteSpeed={50}
+            delaySpeed={1000}
+            multiTextLoop={true}/> 
           </p>
         <p className="absolute text-[150px] font-bold text-left text-transparent-fill text-stroke">
-          KI Woon
+        <TypeWriterEffect
+            textStyle={{ fontFamily: 'Redressed' }}
+            startDelay={1100}
+            cursorColor="transparent"
+            multiText={[
+              'KI Woon',
+              'KI Woon',
+              
+            ]}
+            multiTextDelay={4000}
+            typeSpeed={200}
+            deleteSpeed={50}
+            delaySpeed={1000}
+            multiTextLoop={true}/>  
         </p>
       </div>
       <img src={process.env.PUBLIC_URL + '/images/Rectangle 3.png'}
@@ -191,66 +234,60 @@ function Main() {
     {
       Array(2).fill().map((_,i)=>{
         return(          
-          <ul key={i} className={`w-full  ${i === 1 ? `${isActive}` : 'flex flex-wrap justify-between' } `} >
-            <li className='basis-full'>
-              <img src={process.env.PUBLIC_URL + '/images/Rectangle 46.png'}
-                className="w-full h-[410px]"/>
-              <p className="text-4xl font-bold text-left text-black">Page 01</p></li>
-            <li>
-              <img src={process.env.PUBLIC_URL + '/images/Rectangle 10.png'}  className="object-cover "/>
-              <p className="text-4xl font-bold text-left text-black">Page 02</p></li>      
-            <li>
-              <img src={process.env.PUBLIC_URL + '/images/Rectangle 6.png'}
-                className=""/>  <p className="text-4xl font-bold text-left text-black">Page 03</p>
-            </li>
-            <li>
-              <img src={process.env.PUBLIC_URL + '/images/Rectangle 47.png'}
-              className=""/>
-              <p className="text-4xl font-bold text-left text-black">Page 04</p>
-            </li>
-            <li>        
-              <img src={process.env.PUBLIC_URL + '/images/Rectangle 46.png'}
-                className=""/>
-                  <p className="text-4xl font-bold text-left text-black">Page 05</p>
-            </li>
+          <ul key={i} className={`w-full  ${i++ >= 1 ? `${isActive}` : 'flex flex-wrap justify-between' } `} >
+
+            {
+              img.map((e,i)=>{
+                return(
+                  <>
+                  <li className='first:basis-full mt-10'>
+                    <img src={process.env.PUBLIC_URL + `${e}`} className="w-full h-[410px]"/>
+                    <p className="mt-3 text-4xl font-bold text-left text-black">Page 0{i+1}</p></li>
+                  </>
+                )
+              })
+            }
           </ul>
         )
 
       })
     }
-
     </div>
     <div className='mx-auto w-[1520px] flex justify-center'>
-    <button className={`mt-20 w-4/5 h-24 rounded-[50px] bg-[#111] text-4xl font-bold ${isActive === 'hidden' ? 'text-white' : 'text-slate-500 text-opacity-40'} text-center `} onClick={()=>{isActive ==='hidden' ?SetIsActive("flex flex-wrap justify-between") : SetIsActive('hidden')}}>
+    <button className={`mt-20 w-4/5 h-24 rounded-[50px] bg-[#111] text-4xl font-bold ${isActive === 'hidden' ? 'text-white' : 'text-gray-400 text-opacity-40'} text-center `} onClick={()=>{isActive ==='hidden' ?SetIsActive("flex flex-wrap justify-between") : SetIsActive('hidden')}}>
       + More Works
       </button> 
     </div>
     
 
-    <div className="w-[1920px] h-[234px]">
-    <div className="w-[1920px] h-[234px] absolute left-[-0.5px] top-[6949.5px] bg-[#111]" />
-    <p className="absolute left-[1220px] top-[6997px] text-2xl font-bold text-left text-white">
-      Instagram
-    </p>
-    <p className="absolute left-[1440px] top-[6997px] text-2xl font-bold text-left text-white">
-      KakaoTalk
-    </p>
-    <p className="absolute left-[1662px] top-[6997px] text-2xl font-bold text-left text-white">
-      Email
-    </p>
-    <p className="absolute left-[206px] top-[6997px] text-2xl font-bold text-left text-white">
-      CONTACT
-    </p>
-    <p className="absolute left-[876px] top-[7125px] text-xl font-bold text-left">
-      <span className="text-xl font-bold text-left text-[#8e8e8e]">Made by</span>
-      <span className="text-xl font-bold text-left text-white"> Ki woon</span>
-    </p>
-    <p className="absolute left-[893px] top-[7149px] text-xl font-bold text-left text-[#8e8e8e]">
-      ⓒ kiwoon.net
-    </p>
+
+    <div className="w-full h-60 mt-20 bg-[#111]">
+    <ul className='flex justify-between py-10'>
+      <li className='basis-[70%] px-4'>
+        <p className="text-2xl font-bold text-left text-white">CONTACT</p>
+      </li>
+      <li className='basis-[10%] px-4'>
+        <p className="text-2xl font-bold text-left text-white">Instagram</p>
+      </li>
+      <li className='basis-[10%] px-4'>
+        <p className="text-2xl font-bold text-left text-white">KakaoTalk</p>
+      </li>
+      <li className='basis-[10%] px-4'>
+        <p className=" text-2xl font-bold text-left text-white">Email</p>
+      </li>
+        
+    </ul>
+        <p className="text-xl font-bold text-center mt-8">
+          <span className="text-xl font-bold text-left text-[#8e8e8e]">Made by</span>
+          <span className="text-xl font-bold text-left text-white"> Ki woon</span>
+        </p>
+        <p className="text-xl font-bold text-center text-[#8e8e8e]">ⓒ kiwoon.net</p>
+    
+    </div>
   </div>
-</div>
+  </>
   )
+
 }
 
 export default Main
