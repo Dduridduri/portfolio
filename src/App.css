@@ -7,15 +7,16 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
-  background:
-   linear-gradient(to right, 
+
+  /* background:
+  linear-gradient(to right,  
     red,            
     orange,          
     yellow,          
     green,           
     blue,            
     indigo,          
-    violet);        
+    violet);         */
 }
 
 .App-header button {

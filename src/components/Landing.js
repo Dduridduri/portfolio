@@ -45,8 +45,8 @@ function Landing() {
       className={`fixed z-50 w-full opacity-100 transition-all duration-200 `} style={{zIndex: zindex}}>
       <header className="App-header">
         <motion.h1
-          initial={{ y: -250 }}
-          animate={{ y: -100 }}
+          initial={{ y: 750 }}
+          animate={{ y: 350 }}
           transition={{ type: "spring", stiffness: 220 }}
         >
         <img src={process.env.PUBLIC_URL + '/images/bonobono.png'} alt="bonobono" />
