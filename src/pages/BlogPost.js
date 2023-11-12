@@ -88,27 +88,29 @@ function BlogPosts() {
 
   return (
     <>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-2 sm:gap-x-5 lg:gap-x-10 gap-y-4 m-4 mx-auto z-10 max-w-[1520px]">
-        {skills.map((e, i) => (
-           <div key={i} onClick={()=>clickEvent(i,e)}
-              // <div key={i} onClick={()=> {
-              //   i !== 1 &&
-              //   setActiveContent(e.description);
-              //   setLogoImage(e.logo);
-              //   setTitle(e.title);
-              //   changeImageSize('w-20');
-              //   setDesc2(e.desc2)
-              // }
-              //   }
-             className={`p-4 border border-gray-300 rounded-lg shadow-md text-center transition-transform transform  ${i === 1 ? 'row-span-4 disable-click' : 'hover:scale-x-105 hover:scale-y-105 cursor-pointer'}  `}>            
-            <img src={process.env.PUBLIC_URL + `${i === 1 ? logoImage : e.logo }`} alt={`${e.title} logo`} className={`mx-auto mb-4 ${i === 1 ? imageSizeClass : 'w-10'}`} />
-            <h3 className="text-lg font-semibold mb-2">{i === 1 ? title : e.title}</h3>
-            <h4 className={`text-gray-600 text-2xl font-semibold ${i === 1 ? 'py-5' : ''}`}>{i === 1 && activeContent }</h4>
-            <p className={`text-gray-600 text-sm ${i === 1 ? 'py-5' : ''}`}>{i === 1 && desc2 }</p>
+      <div className='mx-auto z-10 max-w-[1520px] my-20'>
+      <h3 className='text-5xl font-bold mb-10'>Skills</h3>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-2 sm:gap-x-5 lg:gap-x-10 gap-y-4  ">
+          {skills.map((e, i) => (
+            <div key={i} onClick={()=>clickEvent(i,e)}
+                // <div key={i} onClick={()=> {
+                //   i !== 1 &&
+                //   setActiveContent(e.description);
+                //   setLogoImage(e.logo);
+                //   setTitle(e.title);
+                //   changeImageSize('w-20');
+                //   setDesc2(e.desc2)
+                // }
+                //   }
+              className={`p-4 border border-gray-300 rounded-lg shadow-md text-center transition-transform transform  ${i === 1 ? 'row-span-4 disable-click' : 'hover:scale-x-105 hover:scale-y-105 cursor-pointer'}  `}>            
+              <img src={process.env.PUBLIC_URL + `${i === 1 ? logoImage : e.logo }`} alt={`${e.title} logo`} className={`mx-auto mb-4 ${i === 1 ? imageSizeClass : 'w-10'}`} />
+              <h3 className="text-lg font-semibold mb-2">{i === 1 ? title : e.title}</h3>
+              <h4 className={`text-gray-600 text-2xl font-semibold ${i === 1 ? 'py-5' : ''}`}>{i === 1 && activeContent }</h4>
+              <p className={`text-gray-600 text-sm ${i === 1 ? 'py-5' : ''}`}>{i === 1 && desc2 }</p>
+            </div>
+          ))}
           </div>
-        ))}
         </div>
-
     </>   
   )
 }
