@@ -7,6 +7,7 @@ import Landing from './components/Landing';
 import Works from './components/Works';
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
+import About from './components/About';
 
 
 function App() {
@@ -21,6 +22,8 @@ function App() {
       <Route path="/snakegame" element={<SnakeGame/>}></Route>
       <Route path="/landing" element={<Landing/>}></Route>
       <Route path="/works" element={<Works/>}></Route>
+      <Route path="/about" element={<About/>}></Route>
+
 
     </Routes>
 

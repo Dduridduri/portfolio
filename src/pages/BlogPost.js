@@ -90,9 +90,9 @@ function BlogPosts() {
     <>
       <div className='mx-auto z-10 max-w-[1520px] my-20'>
       <h3 className='text-5xl font-bold mb-10'>Skills</h3>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-2 sm:gap-x-5 lg:gap-x-10 gap-y-4  ">
+        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-x-2 sm:gap-x-5 lg:gap-x-10 gap-y-4  ">
           {skills.map((e, i) => (
-            <div key={i} onClick={()=>clickEvent(i,e)}
+            <div key={i} onMouseOver={()=>clickEvent(i,e)} onClick={()=>clickEvent(i,e)} 
                 // <div key={i} onClick={()=> {
                 //   i !== 1 &&
                 //   setActiveContent(e.description);

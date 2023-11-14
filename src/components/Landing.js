@@ -12,7 +12,7 @@ function Landing() {
     const timer = setTimeout(() => {
      
       setzIndex(-10)
-    }, 1000);     // 5초 후 메인 페이지로 이동
+    }, 1500);     // 5초 후 메인 페이지로 이동
      
 
     return () => clearTimeout(timer);
@@ -45,19 +45,19 @@ function Landing() {
       className={`fixed z-50 w-full opacity-100 transition-all duration-200 `} style={{zIndex: zindex}}>
       <header className="App-header">
         <motion.h1
-          initial={{ y: 750 }}
-          animate={{ y: 350 }}
+          // initial={{ y: 750 }}
+          // animate={{ y: 350 }}
           transition={{ type: "spring", stiffness: 220 }}
         >
-        <img src={process.env.PUBLIC_URL + '/images/bonobono.png'} alt="bonobono" />
+        {/* <img src={process.env.PUBLIC_URL + '/images/bonobono.png'} alt="bonobono" /> */}
 
         </motion.h1>
         <motion.p
           initial= {{ opacity: 1 , x: -0, y: -0}}         
           animate= {{ opacity: 1 , x: -0, y: 0}}
           transition={{ delay: 0, duration: 2, type: "spring", stiffness: 220  }}
-          className='text-[200px] font-bold'>
-           
+          className='text-5xl font-bold'>
+           K.Woon
         </motion.p>
       </header>
     </motion.div>

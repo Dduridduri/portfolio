@@ -67,12 +67,12 @@ function SnakeGame() {
         // 자기 자신에게 부딪혔는지 확인
         for (const segment of newSnake.slice(1)) {
           if (head.x === segment.x && head.y === segment.y) {
-            setGameOver(true); // 게임 오버를 true로 설정합니다.
+            setGameOver(true); 
             return prevSnake;
           }
         }
         
-        // 음식을 먹었는지 확인
+       
         if (head.x === food.x && head.y === food.y) {
           setFood(getRandomCoord);
           newSnake.unshift(head);
@@ -89,25 +89,37 @@ function SnakeGame() {
     
     return () => clearInterval(gameLoop);
   }, [food, direction, gameOver]);
+  const rotationAngle = (direction) => {
+    if (direction.x === 1) return '-45deg';  
+    if (direction.x === -1) return '45deg';  
+    if (direction.y === 1) return '0deg';   
+    if (direction.y === -1) return '90deg';  
+  };
 
   return (
     <>
-      <div className="game-area" style={{
+      <div className="game-area translate-x-[50%] my-10" style={{
         width: COLS * CELL_SIZE,
         height: ROWS * CELL_SIZE,
         border: '1px solid black',
         position: 'relative',
       }}>
-        {snake.map((cell, index) => (
-          <div key={index} style={{
-            position: 'absolute',
-            left: cell.x * CELL_SIZE,
-            top: cell.y * CELL_SIZE,
-            width: CELL_SIZE,
-            height: CELL_SIZE,
-            backgroundColor: gameOver ? 'grey' : 'black',
-          }} />
-        ))}
+            {snake.map((cell, index) => (
+              <div key={index} style={{
+                position: 'absolute',
+                left: cell.x * CELL_SIZE,
+                top: cell.y * CELL_SIZE,
+                width: CELL_SIZE,
+                height: CELL_SIZE,
+                backgroundColor: gameOver ? 'grey' : '#CDDC21',
+                backgroundColor: index === 0 ? "transparent" : '#CDDC21',
+                zIndex: index === 0 ? 2 : 1, 
+                transform: index === 0 ? `rotate(${rotationAngle(direction)})` : undefined,         
+              }}>
+                {index === 0 && <img src={process.env.PUBLIC_URL + '/images/snakehead.png'} alt="Snake Head" className='w-full h-full object-cover'   style={{transform: `rotate(${rotationAngle(direction)})`}} />} 
+                
+              </div>
+            ))}
         <div style={{
           position: 'absolute',
           left: food.x * CELL_SIZE,
@@ -118,9 +130,9 @@ function SnakeGame() {
         }} />
       </div>
       {gameOver && (
-        <div className="game-over" style={{
+        <div className="game-over my-10 translate-x-[50%]" style={{
           position: 'absolute',
-          top: 0,
+          top: 0,          
           width: COLS * CELL_SIZE,
           height: ROWS * CELL_SIZE,
           display: 'flex',
