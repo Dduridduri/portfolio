@@ -16,7 +16,7 @@ function Footer() {
       },[])
       
       const date = new Date (commit);
-      date.setHours(date.getHours()+9)
+      // date.setHours(date.getHours()+9)
       const year = date.getFullYear();
       const month = (date.getMonth() + 1).toString().
       padStart(2, '0');
@@ -24,7 +24,7 @@ function Footer() {
       const hours = date.getHours(). toString(). padStart(2, '0')
       const minutes = date.getMinutes(). toString(). padStart(2, '0')
       const seconds = date.getSeconds(). toString(). padStart(2, '0')
-      const formatDate = `${year}-${month}-${day}`
+      const formatDate = `${year}-${month}-${day}:${hours}:${minutes}`
 
   return (    
     <div className="w-full h-60 mt-20 bg-[#111] relative" id='3'>
@@ -33,7 +33,7 @@ function Footer() {
         <p className="text-2xl font-bold text-left text-white">CONTACT</p>
       </li>
       <li className='basis-[10%] px-4'>
-        <p className="text-2xl font-bold text-left text-white">GitHUB</p>
+        <p className="text-2xl font-bold text-left text-white"><a href="https://github.com/Dduridduri/portfolio" target="_blank" rel="noopener noreferrer">GitHub</a></p>
       </li>
       <li className='basis-[10%] px-4'>
         <p className="text-2xl font-bold text-left text-white">KakaoTalk</p>

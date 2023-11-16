@@ -10,7 +10,7 @@ import 'swiper/css/scrollbar';
 import 'swiper/css/autoplay';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 
 
@@ -134,7 +134,7 @@ const work = [
     tools: ["HTML", "CSS", "JS"],
     date: "2일",
     img:"/images/coding.png",
-    img2:"",
+    img2:"/images/clone.png",
     link:"",
     git: "https://www.github.com",
   },
@@ -143,7 +143,7 @@ const work = [
 
 function Works() {
   const [select, setSelect] = useState("");
-  const [selectImg, setSelectImg]= useState("");
+  const [selectImg, setSelectImg]= useState("/images/1qlink2.png");
   const [detail, setDetail] = useState("")
   // const scrollContainerRef = useRef(null);
   // let scrollAnimation;
@@ -199,7 +199,7 @@ function Works() {
     <>
         <div id='2' className='max-w-[540px] lg:mx-auto mx-10 md: overflow-hidden mt-10 relative sm:max-w-full sm:mt-5 md:max-w-2xl lg:max-w-3xl xl:max-w-6xl 2xl:max-w-full' >
           <div className='w-full border h-[600px] bg-[#2e2e2e] relative'>
-            <button className='absolute text-black bottom-2 right-4 bg-slate-100 rounded-full px-4 py-1'><NavLink to={detail}>자세히 보기</NavLink></button>
+            <button className='absolute text-black bottom-2 right-4 bg-slate-100 rounded-full px-4 py-1'><Link to={detail}>자세히 보기</Link></button>
             <div className='w-[80%] h-full border-r-2 border-l-2 mx-auto bg-white overflow-auto scrollbar-hide'>
               <img src={process.env.PUBLIC_URL + `${selectImg}`} alt={select} className='w-full h-auto'/>
             </div>

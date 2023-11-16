@@ -65,7 +65,7 @@ function BlogPosts() {
     const [activeContent, setActiveContent] = useState('Structure web content with semantic markup.');
     const [logoImage, setLogoImage] = useState('/images/image_1.png')
     const [title, setTitle] = useState('HTML')
-    const [imageSizeClass, setImageSizeClass] = useState('w-20');
+    const [imageSizeClass, setImageSizeClass] = useState('w-20 mt-10');
     const [desc2, setDesc2] = useState("웹 개발의 기초를 단단히 다지며, HTML을 통해 클라이언트의 요구사항과 프로젝트 목표를 충실히 반영한 웹사이트를 구축합니다. 접근성과 웹 표준을 항상 염두에 두고, 유지보수가 용이하고 확장 가능한 마크업 구조를 제공합니다.")
 
     const changeImageSize = (size) => {
@@ -102,11 +102,13 @@ function BlogPosts() {
                 //   setDesc2(e.desc2)
                 // }
                 //   }
-              className={`p-4 border border-gray-300 rounded-lg shadow-md text-center transition-transform transform  ${i === 1 ? 'row-span-4 disable-click' : 'hover:scale-x-105 hover:scale-y-105 cursor-pointer'}  `}>            
-              <img src={process.env.PUBLIC_URL + `${i === 1 ? logoImage : e.logo }`} alt={`${e.title} logo`} className={`mx-auto mb-4 ${i === 1 ? imageSizeClass : 'w-10'}`} />
-              <h3 className="text-lg font-semibold mb-2">{i === 1 ? title : e.title}</h3>
+              className={`p-4 border border-gray-300 rounded-lg shadow-md text-center transition-transform transform  ${i === 1 ? 'row-span-4 disable-click' : 'hover:scale-x-105 hover:scale-y-105 cursor-pointer'}  `}>
+
+              <img src={process.env.PUBLIC_URL + `${i === 1 ? logoImage : e.logo }`} alt={`${e.title} logo`} className={`mx-auto mb-4 ${i === 1 ? imageSizeClass : 'w-10'}`} />              
+              <h3 className={`text-lg font-semibold mb-2 ${i === 1 ? 'mt-10' : ''}`}>{i === 1 ? title : e.title}</h3>
               <h4 className={`text-gray-600 text-2xl font-semibold ${i === 1 ? 'py-5' : ''}`}>{i === 1 && activeContent }</h4>
               <p className={`text-gray-600 text-sm ${i === 1 ? 'py-5' : ''}`}>{i === 1 && desc2 }</p>
+             
             </div>
           ))}
           </div>

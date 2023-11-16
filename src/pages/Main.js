@@ -7,6 +7,7 @@ import Works from '../components/Works';
 import About from '../components/About';
 import { Link, animateScroll as scroll} from "react-scroll";
 import { styled } from "styled-components";
+import Footer from '../components/Footer';
 
 
 const Header =["About", "Works", "Skills", "Contact"]
@@ -108,12 +109,9 @@ function Main() {
     <Works/>
     </div>
     <div className='mx-auto w-[1520px] flex justify-center'>
-
     </div>
-    
-
-
-  </div>
+      <Footer/> 
+    </div>
   </>
   )
 
