@@ -143,7 +143,7 @@ const work = [
 
 function Works() {
   const [select, setSelect] = useState("");
-  const [selectImg, setSelectImg]= useState("/images/1qlink2.png");
+  const [selectImg, setSelectImg]= useState("/images/qlink2.png");
   const [detail, setDetail] = useState("")
   // const scrollContainerRef = useRef(null);
   // let scrollAnimation;

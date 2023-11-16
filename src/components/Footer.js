@@ -1,35 +1,9 @@
 import React, { useEffect, useState } from 'react'
 
 function Footer() {
-  const [commit, setCommit] = useState('');
-  const [commitMessage, setCommitMessage] =useState('');
-  const repo = 'Dduridduri/portfolio';
-
-  useEffect(()=>{
-    const fetchData = async()=>{
-      const res = await fetch(`https://api.github.com/repos/${repo}/commits`)
-      const data = await res.json();
-      const lastCommit = data[0];
-      console.log(lastCommit.commit.message)
-      setCommit(lastCommit.commit.committer.date)
-      setCommitMessage(lastCommit.commit.message)
-      }
-      fetchData();
-      },[])
-      
-      const date = new Date (commit);
-      // date.setHours(date.getHours()+9)
-      const year = date.getFullYear();
-      const month = (date.getMonth() + 1).toString().
-      padStart(2, '0');
-      const day = date.getDate(). toString(). padStart(2, '0')
-      const hours = date.getHours(). toString(). padStart(2, '0')
-      const minutes = date.getMinutes(). toString(). padStart(2, '0')
-      const seconds = date.getSeconds(). toString(). padStart(2, '0')
-      const formatDate = `${year}-${month}-${day}:${hours}:${minutes}`
 
   return (    
-    <div className="w-full h-64 mt-20 bg-[#111] relative" id='3'>
+    <div className="w-full h-60 mt-20 bg-[#111] relative" id='3'>
     <ul className='flex justify-between py-10'>
       <li className='basis-[70%] px-4'>
         <p className="text-2xl font-bold text-left text-white">CONTACT</p>
@@ -50,10 +24,10 @@ function Footer() {
           <span className="text-xl font-bold text-left text-white"> Ki woon</span>
         </p>
         <p className="text-xl font-bold text-center text-[#8e8e8e]">ⓒ kiwoon.net</p>
-        <div className='absolute right-[6%] bottom-0'>
+        {/* <div className='absolute right-[6%] bottom-0'>
         <p className="bottom-10 text-xl font-bold text-right text-[#8e8e8e] right-[6%]">업데이트 : {formatDate}</p>    
         <p className="bottom-0 text-sm font-bold text-right text-[#8e8e8e] right-[6%]">{commitMessage}</p>    
-        </div>
+        </div> */}
     </div>
   )
 }

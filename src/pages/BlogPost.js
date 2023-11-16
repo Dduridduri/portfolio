@@ -77,7 +77,7 @@ function BlogPosts() {
         setActiveContent(el.description);
         setLogoImage(el.logo);
         setTitle(el.title);
-        changeImageSize('w-20');
+        changeImageSize('w-20 mt-10');
         setDesc2(el.desc2);
       }else{
         return false;

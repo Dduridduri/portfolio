@@ -51,16 +51,16 @@ function Main() {
               'Front-End',
               '프론트 엔드',
             ]}
-            multiTextDelay={3000}
-            typeSpeed={100}
+            multiTextDelay={3500}
+            typeSpeed={150}
             deleteSpeed={50}
-            delaySpeed={1000}
+            delaySpeed={1500}
             multiTextLoop={true}/>          
         </p>
         <p className="text-7xl md:text-8xl lg:text-[150px] font-bold text-left text-white leading-4 ml-20 py-5">
         <TypeWriterEffect
             textStyle={{ fontFamily: 'Redressed' }}
-            startDelay={800}
+            startDelay={500}
             cursorColor="transparent"
             multiText={[
               'Developer',
@@ -69,7 +69,7 @@ function Main() {
             multiTextDelay={3500}
             typeSpeed={150}
             deleteSpeed={50}
-            delaySpeed={1000}
+            delaySpeed={1500}
             multiTextLoop={true}/> 
           </p>
         <p className="text-7xl md:text-8xl lg:text-[150px] font-bold text-left text-transparent-fill text-stroke text-white">
@@ -85,7 +85,7 @@ function Main() {
             multiTextDelay={4000}
             typeSpeed={200}
             deleteSpeed={50}
-            delaySpeed={1000}
+            delaySpeed={1500}
             multiTextLoop={true}/>  
         </p>
       
