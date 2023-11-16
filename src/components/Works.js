@@ -197,7 +197,7 @@ function Works() {
   // }, []);
   return (
     <>
-        <div id='2' className='max-w-[540px] lg:mx-auto mx-10 md: overflow-hidden mt-10 relative sm:max-w-full sm:mt-5 md:max-w-2xl lg:max-w-3xl xl:max-w-6xl 2xl:max-w-full' >
+        <div id='2' className='max-w-[480px] 2xl:mx-auto xl:mx-auto md:overflow-hidden mt-10 relative sm:max-w-2xl sm:mt-5 md:max-w-[55%] lg:max-w-6xl xl:max-w-full 2xl:max-w-full px-4 ' >
           <div className='w-full border h-[600px] bg-[#2e2e2e] relative'>
             <button className='absolute text-black bottom-2 right-4 bg-slate-100 rounded-full px-4 py-1'><Link to={detail}>자세히 보기</Link></button>
             <div className='w-[80%] h-full border-r-2 border-l-2 mx-auto bg-white overflow-auto scrollbar-hide'>
@@ -211,7 +211,7 @@ function Works() {
             slidesPerView={2}
             breakpoints={{
               640: {slidesPerView: 2,},
-              768: {slidesPerView: 2,},
+              768: {slidesPerView: 2,},              
               1400: {slidesPerView: 4,},
               1500: {slidesPerView: 5,},
             }}

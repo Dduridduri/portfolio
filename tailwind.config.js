@@ -6,7 +6,7 @@ module.exports = {
   },
   variants: {},
   plugins: [
-    require('tailwind-scrollbar-hide'),
+    require("tailwind-scrollbar-hide"),
     function ({ addUtilities }) {
       const newUtilities = {
         '.text-stroke': {
@@ -19,5 +19,6 @@ module.exports = {
       };
       addUtilities(newUtilities, ['responsive', 'hover']);
     },
+    
   ],
 }
