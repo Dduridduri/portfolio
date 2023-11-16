@@ -34,15 +34,12 @@ function Landing() {
       // const seconds = date.getSeconds(). toString(). padStart(2, '0')
       const formatDate = `${year}-${month}-${day}`
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-     
+  useEffect(() => {    
+    const timer = setTimeout(() => {     
       setzIndex(-10)
-    }, 1500);     // 5초 후 메인 페이지로 이동
-     
-
-    return () => clearTimeout(timer);
-  }, [navigate]);
+      }, 1500);
+      return () => clearTimeout(timer);
+    }, [navigate]);
 
     // const springAnimation = {
     //   initial: { y: -1000, opacity: 0 }, // 초기 위치를 화면 위쪽 바깥으로 설정
@@ -68,7 +65,7 @@ function Landing() {
       initial={{ opacity: 1 , }}
       animate={{ opacity: 0 , x: -0, y: -0}}
       transition={{ delay: 0.5, duration: 2}} 
-      className={`fixed z-50 w-full opacity-100 transition-all duration-200 `} style={{zIndex: zindex}}>
+      className={`fixed z-50 w-screen opacity-100 transition-all duration-200 `} style={{zIndex: zindex}}>
       <header className="App-header">
         <motion.h1
           // initial={{ y: 750 }}
@@ -82,7 +79,7 @@ function Landing() {
           initial= {{ opacity: 1 , x: -0, y: -0}}         
           animate= {{ opacity: 1 , x: -0, y: 0}}
           transition={{ delay: 0, duration: 2, type: "spring", stiffness: 220  }}
-          className='text-5xl font-bold'>
+          className='text-2xl sm:text-4xl md:text-5xl font-bold'>
            K.Woon           
         </motion.p>
         <br />
