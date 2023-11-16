@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTabletScreenButton, faMobileScreenButton } from '@fortawesome/free-solid-svg-icons';
+import { faTabletScreenButton, faMobileScreenButton, faTelevision } from '@fortawesome/free-solid-svg-icons';
 import TypeWriterEffect from 'react-typewriter-effect';
 import BlogPosts from './BlogPost';
 import Works from '../components/Works';
@@ -43,8 +43,9 @@ function Main() {
     <>
     
     <div>
-    <button onClick={() => openWindow(768, 1024)} style={{ color: windowWidth <= 768 && windowWidth > 640 && 'green' }} className='text-4xl fixed text-gray-500 right-0 z-50'><FontAwesomeIcon icon={faTabletScreenButton}/></button>
-    <button onClick={() => openWindow(420, 667)} style={{ color: windowWidth <= 640  && 'green' }} className='text-4xl fixed  text-gray-500 right-10 z-50'><FontAwesomeIcon icon={faMobileScreenButton}/></button>    
+    <button onClick={() => openWindow(1280, 1024)} style={{ color: windowWidth >= 1280 && 'green' }} className='text-4xl fixed text-gray-500 right-[90px] z-50 opacity-60'><FontAwesomeIcon icon={faTelevision}/></button>
+    <button onClick={() => openWindow(768, 1024)} style={{ color: windowWidth <= 768 && windowWidth > 420 && 'green' }} className='text-4xl fixed text-gray-500 right-10 z-50 opacity-60'><FontAwesomeIcon icon={faTabletScreenButton}/></button>
+    <button onClick={() => openWindow(420, 667)} style={{ color: windowWidth <= 420  && 'green' }} className='text-4xl fixed  text-gray-500 right-0 z-50 opacity-60'><FontAwesomeIcon icon={faMobileScreenButton}/></button>    
     <div className="overflow-hidden ">    
       <div style={{ backgroundImage: `url(${process.env.PUBLIC_URL + '/images/IMG_8441.png'})`}} className='bg-cover bg-center bg-no-repeat h-screen w-screen'>
       <div className='' >   
