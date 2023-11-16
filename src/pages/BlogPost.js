@@ -63,7 +63,7 @@ function BlogPosts() {
 
 
     const [activeContent, setActiveContent] = useState('Structure web content with semantic markup.');
-    const [logoImage, setLogoImage] = useState('/images/Image 1.png')
+    const [logoImage, setLogoImage] = useState('/images/image_1.png')
     const [title, setTitle] = useState('HTML')
     const [imageSizeClass, setImageSizeClass] = useState('w-20');
     const [desc2, setDesc2] = useState("웹 개발의 기초를 단단히 다지며, HTML을 통해 클라이언트의 요구사항과 프로젝트 목표를 충실히 반영한 웹사이트를 구축합니다. 접근성과 웹 표준을 항상 염두에 두고, 유지보수가 용이하고 확장 가능한 마크업 구조를 제공합니다.")
