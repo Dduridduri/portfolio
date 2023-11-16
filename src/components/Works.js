@@ -10,6 +10,7 @@ import 'swiper/css/scrollbar';
 import 'swiper/css/autoplay';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons';
+import { NavLink } from 'react-router-dom';
 
 
 
@@ -46,7 +47,7 @@ const work = [
     date: "1일",
     img:"/images/1snake.png",
     img2:"/images/playing.png",
-    link:"/snake",
+    link:"/snakegame",
     git: "https://www.github.com",
   },
   {
@@ -143,7 +144,7 @@ const work = [
 function Works() {
   const [select, setSelect] = useState("");
   const [selectImg, setSelectImg]= useState("");
-
+  const [detail, setDetail] = useState("")
   // const scrollContainerRef = useRef(null);
   // let scrollAnimation;
 
@@ -196,8 +197,9 @@ function Works() {
   // }, []);
   return (
     <>
-        <div className='max-w-[540px] lg:mx-auto mx-10 md: overflow-hidden mt-10 relative sm:max-w-full sm:mt-5 md:max-w-2xl lg:max-w-3xl xl:max-w-6xl 2xl:max-w-full' >
-          <div className='w-full border h-[600px] bg-[#2e2e2e]'>
+        <div id='2' className='max-w-[540px] lg:mx-auto mx-10 md: overflow-hidden mt-10 relative sm:max-w-full sm:mt-5 md:max-w-2xl lg:max-w-3xl xl:max-w-6xl 2xl:max-w-full' >
+          <div className='w-full border h-[600px] bg-[#2e2e2e] relative'>
+            <button className='absolute text-black bottom-2 right-4 bg-slate-100 rounded-full px-4 py-1'><NavLink to={detail}>자세히 보기</NavLink></button>
             <div className='w-[80%] h-full border-r-2 border-l-2 mx-auto bg-white overflow-auto scrollbar-hide'>
               <img src={process.env.PUBLIC_URL + `${selectImg}`} alt={select} className='w-full h-auto'/>
             </div>
@@ -233,15 +235,18 @@ function Works() {
                 <div 
                 onMouseOver={()=>{
                   setSelect(i);
-                  setSelectImg(e.img2);               
+                  setSelectImg(e.img2);
+                  setDetail(e.link);
                 }}onClick={()=>{
                   setSelect(i);
-                  setSelectImg(e.img2);               
+                  setSelectImg(e.img2);
+                  setDetail(e.link);               
                 }}className='h-52 border-box relative lg:w-full w-4/5'>
                   <img src={process.env.PUBLIC_URL + `${e.img}`} alt={e.title} className='w-full h-full object-cover hover:opacity-40'onMouseLeave={()=>{setSelect("")}}/>
                   </div>
-                  <p className='text-3xl font-bold leading-normal' >{select === i ? e.title : ""}<br/></p>
-              </SwiperSlide> 
+                  <p className='text-3xl font-bold leading-normal' >{select === i ? e.title : ""}<br/></p>                  
+              </SwiperSlide>
+               
             ))}
           </Swiper>
           <div className="custom-swiper-button-next swiper-button-next absolute bottom-0 right-0 z-10 p-2 rounded-full shadow-md bg-gray-200 hover:bg-gray-400 after:hidden">

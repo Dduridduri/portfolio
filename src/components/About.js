@@ -3,7 +3,7 @@ import React from 'react'
 function About() {
   return (
     <>
-    <div className="max-w-[1520px] mx-auto mt-20  relative">      
+    <div className="max-w-[1520px] mx-auto mt-20  relative" id='0'>      
     <div className='flex justify-between w-full mx-auto' >      
       <p className=" text-5xl font-bold text-left text-black basis-[61%] z-0">
       ABOUT ME
@@ -13,7 +13,7 @@ function About() {
       </p>
     </div>
     <div>
-    <img src={process.env.PUBLIC_URL + '/images/about.png'} alt="" className='xl:absolute top-0 -z-10'/>
+    <img src={process.env.PUBLIC_URL + '/images/1about.png'} alt="" className='xl:absolute top-0 -z-10'/>
     </div>
     <div className='xl:h-[330px] '>      
     </div>

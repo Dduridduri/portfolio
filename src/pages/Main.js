@@ -5,6 +5,8 @@ import TypeWriterEffect from 'react-typewriter-effect';
 import BlogPosts from './BlogPost';
 import Works from '../components/Works';
 import About from '../components/About';
+import { Link, animateScroll as scroll} from "react-scroll";
+import { styled } from "styled-components";
 
 
 const Header =["About", "Works", "Skills", "Contact"]
@@ -12,6 +14,7 @@ const img = ['/images/Rectangle 46.png', '/images/Rectangle 10.png','/images/Rec
 
 function Main() {
   const [isActive, SetIsActive] = useState('hidden');
+  
 
   return (
     <>
@@ -26,8 +29,9 @@ function Main() {
         {
           Header.map((e,i)=>{
             return(
-              <li key={i} className='basis-[10%] px-4 '>
-              <p className="text-2xl text-left text-white ">{e}</p>       
+              <li key={i}  className='basis-[10%] px-4 cursor-pointer '><Link to={i} spy={true} smooth={true} offset={-100}>
+                <p className="text-2xl text-left text-white ">{e}</p>       
+              </Link>
             </li>
             )
           })
@@ -41,7 +45,7 @@ function Main() {
             <TypeWriterEffect
             textStyle={{ fontFamily: 'Redressed' }}
             startDelay={500}
-            cursorColor="transparent"
+            cursorColor= "transparent"            
             multiText={[
               'Front-End',
               '프론트 엔드',
@@ -91,7 +95,7 @@ function Main() {
       {/* 메인 이미지 */}
   
 
-  <About/>
+  <About  />
 
   
 
@@ -109,29 +113,6 @@ function Main() {
     
 
 
-    <div className="w-full h-60 mt-20 bg-[#111]">
-    <ul className='flex justify-between py-10'>
-      <li className='basis-[70%] px-4'>
-        <p className="text-2xl font-bold text-left text-white">CONTACT</p>
-      </li>
-      <li className='basis-[10%] px-4'>
-        <p className="text-2xl font-bold text-left text-white">Instagram</p>
-      </li>
-      <li className='basis-[10%] px-4'>
-        <p className="text-2xl font-bold text-left text-white">KakaoTalk</p>
-      </li>
-      <li className='basis-[10%] px-4'>
-        <p className=" text-2xl font-bold text-left text-white">Email</p>
-      </li>
-        
-    </ul>
-        <p className="text-xl font-bold text-center mt-8">
-          <span className="text-xl font-bold text-left text-[#8e8e8e]">Made by</span>
-          <span className="text-xl font-bold text-left text-white"> Ki woon</span>
-        </p>
-        <p className="text-xl font-bold text-center text-[#8e8e8e]">ⓒ kiwoon.net</p>
-    
-    </div>
   </div>
   </>
   )
