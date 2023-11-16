@@ -116,7 +116,7 @@ function SnakeGame() {
                 zIndex: index === 0 ? 2 : 1, 
                 transform: index === 0 ? `rotate(${rotationAngle(direction)})` : undefined,         
               }}>
-                {index === 0 && <img src={process.env.PUBLIC_URL + '/images/snakehead.png'} alt="Snake Head" className='w-full h-full object-cover'   style={{transform: `rotate(${rotationAngle(direction)})`}} />} 
+                {index === 0 && <img src={process.env.PUBLIC_URL + '/images/snakehead2.png'} alt="Snake Head" className='w-full h-full object-cover'   style={{transform: `rotate(${rotationAngle(direction)})`}} />} 
                 
               </div>
             ))}
