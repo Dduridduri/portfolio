@@ -150,64 +150,24 @@ function Works() {
   const [tools, setTools] = useState("");
   const [date, setDate] = useState("");
   const [explain, setExplain] = useState(false);
+  const scrollContainerRef = useRef(null);
 
-  // const scrollContainerRef = useRef(null);
-  // let scrollAnimation;
+  const scrollToTop = () => {
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.scrollTop = 0;
+    }
+  };
 
-  // // 스크롤 애니메이션을 시작하는 함수
-  // const startScrollAnimation = () => {
-  //   // 이전 애니메이션을 중단
-  //   if (scrollAnimation) {
-  //     clearInterval(scrollAnimation);
-  //   }
+  
 
-  //   // 새 스크롤 애니메이션 시작
-  //   scrollAnimation = setInterval(() => {
-  //     if (scrollContainerRef.current) {
-  //       const container = scrollContainerRef.current;
-
-  //       container.scrollTop += 1;
-  //       // 스크롤이 끝에 도달하지 않았다면 계속 스크롤
-  //       if (container.scrollTop < container.scrollHeight - container.clientHeight) {
-  //         container.scrollTop += 1;
-  //          // 1픽셀씩 스크롤
-  //       } else {
-  //         // 끝에 도달했다면 애니메이션 중단
-  //         clearInterval(scrollAnimation);
-  //       }
-  //     }
-  //   }, 100); // 10ms 간격으로 스크롤
-  // };
-
-  // // 마우스 오버 이벤트 핸들러
-  // const handleMouseOver = () => {
-  //   startScrollAnimation();
-  // };
-  // // const Reset = () => {
-  // //   if (scrollAnimation) clearInterval(scrollAnimation);
-  // //   if (scrollContainerRef.current) scrollContainerRef.current.scrollTop = 0; // 스크롤 위치를 최상단으로 리셋
-  // // };
-
-  // const handleMouseLeave = () => {
-  //   clearInterval(scrollAnimation); // 스크롤 애니메이션 중지
-  // };
-
-
-  // useEffect(() => {
-  //   // 컴포넌트 언마운트시 인터벌 클리어
-  //   return () => {
-  //     if (scrollAnimation) {
-  //       clearInterval(scrollAnimation);
-  //     }
-  //   };
-  // }, []);
+  
   return (
     <>
         <div id='2' className='max-w-[540px] lg:mx-auto mx-10 md: overflow-hidden mt-10 relative sm:max-w-full sm:mt-5 md:max-w-2xl lg:max-w-3xl xl:max-w-6xl 2xl:max-w-full' >
           <div className='w-full border h-[600px] bg-[#2e2e2e] relative'>            
             <button className='absolute text-black bottom-2 right-7 bg-slate-100  px-4 py-1'><Link to={detail}>방문하기</Link></button>
-            <button className='absolute text-black bottom-12 right-7 bg-slate-100  px-4 py-1 text-center' onMouseOver={()=>{setExplain(true)}} onMouseLeave={()=>{setExplain(false)}}>설명보기</button>            
-            <div className='w-[80%] h-full border-r-2 border-l-2 mx-auto bg-white overflow-auto scrollbar-hide relative'>
+            <button className='absolute text-black bottom-12 right-7 bg-slate-100  px-4 py-1 text-center' onMouseOver={()=>{setExplain(true);scrollToTop();}} onMouseLeave={()=>{setExplain(false)}}>설명보기</button>            
+            <div ref={scrollContainerRef} className='w-[80%] h-full border-r-2 border-l-2 mx-auto bg-white overflow-auto scrollbar-hide relative'>
               {explain === true &&
                 <div className='w-full absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%] text-center '>
                   <h3 className='text-2xl sm:text-4xl font-bold text-center '>{desc}</h3>
@@ -251,6 +211,7 @@ function Works() {
               <SwiperSlide key={i} >
                 <div 
                 onMouseOver={()=>{
+                  scrollToTop();
                   setSelect(i);
                   setSelectImg(e.img2);
                   setDetail(e.link);
@@ -259,6 +220,7 @@ function Works() {
                   setTools(e.tools)
                   setDate(e.date) 
                 }}onClick={()=>{
+                  scrollToTop();
                   setSelect(i);
                   setSelectImg(e.img2);
                   setDetail(e.link); 

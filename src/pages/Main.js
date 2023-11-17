@@ -6,9 +6,8 @@ import BlogPosts from './BlogPost';
 import Works from '../components/Works';
 import About from '../components/About';
 import { Link, animateScroll as scroll} from "react-scroll";
-
 import Footer from '../components/Footer';
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 
 
 
@@ -18,7 +17,8 @@ const img = ['/images/Rectangle 46.png', '/images/Rectangle 10.png','/images/Rec
 
 function Main() {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-
+  const divRef = useRef(null);
+  const [bottom, setBottom] =useState(false)
   useEffect(() => {
     const handleResize = () => {
       setWindowWidth(window.innerWidth);
@@ -38,6 +38,26 @@ function Main() {
   const getButtonStyle = (width) => {
     return windowWidth <= width ? { color : 'green' } : {};
   };
+  
+
+  useEffect(() => {
+    const checkDivPosition = () => {
+      const rect = divRef.current.getBoundingClientRect();
+      if (rect.bottom <= 0) {
+        setBottom(true);
+        console.log('Div의 끝이 화면 맨 위에 도달했습니다!');
+        // 여기에 원하는 로직을 실행하세요.
+      }else{
+        setBottom(false)
+      }
+    };
+
+    window.addEventListener('scroll', checkDivPosition);
+
+    return () => {
+      window.removeEventListener('scroll', checkDivPosition);
+    };
+  }, []);
 
   return (
     <>
@@ -47,18 +67,25 @@ function Main() {
     <button onClick={() => openWindow(768, 1024)} style={{ color: windowWidth <= 768 && windowWidth > 420 && 'green' }} className='text-4xl fixed text-gray-500 right-10 z-50 opacity-60'><FontAwesomeIcon icon={faTabletScreenButton}/></button>
     <button onClick={() => openWindow(420, 667)} style={{ color: windowWidth <= 420  && 'green' }} className='text-4xl fixed  text-gray-500 right-0 z-50 opacity-60'><FontAwesomeIcon icon={faMobileScreenButton}/></button>    
     <div className="overflow-hidden ">    
-      <div style={{ backgroundImage: `url(${process.env.PUBLIC_URL + '/images/IMG_8441.png'})`}} className='bg-cover bg-center bg-no-repeat h-screen w-screen'>
-      <div className='' >   
-      <ul className='flex ml-[20%] justify-end mr-14 py-10  relative '>
+      <div ref={divRef} style={{ backgroundImage: `url(${process.env.PUBLIC_URL + '/images/IMG_8441.png'})`}} className='bg-cover bg-center bg-no-repeat h-screen w-screen'>
+      <div className='' style={bottom === true ? { backgroundColor:'white'} : null} >   
+      <ul className='flex ml-[20%] justify-end mr-14 py-6  relative sm:right-10 font-bold ' style={bottom === true ? { position: 'fixed', color: 'black',zIndex:'50', transform: 'translateX(-10%)'} : null}>
         {/* <li className='absolute left-7 top-[32px] after:absolute after:w-[2px] after:h-[120px] after:bg-black after:-right-[32px] after:-top-10'>
         </li> */}
         {
           Header.map((e,i)=>{
             return(
-              <li key={i}  className='basis-[10%] px-4 cursor-pointer ' ><Link to={i} spy={true} smooth={true} offset={-100}>
-                <p className="xl:text-2xl  text-left text-white ">{e}</p>       
-              </Link>
+              <>              
+            <li key={i}  className='basis-[10%] px-4 cursor-pointer ' ><Link to={i} spy={true} smooth={true} offset={-100}>
+                <p style={bottom === true ? { color: 'black',zIndex:'50'} : null} className={`md:text-xl lg:text-2xl text-left text-white font-bold `}>{e}</p>       
+            </Link>
             </li>
+            {/* <li key={i}  className='basis-[10%] md:px-4 cursor-pointer ' ><Link to={i} spy={true} smooth={true} offset={-100}>
+                 <p style={bottom === true ? { position: 'fixed', color: 'black',zIndex:'50', transform: 'translateX(-0%)'} : null} className={`md:text-xl lg:text-2xl text-left text-white font-bold `}>{e}</p>       
+              </Link>
+            </li> */}           
+            </>
+          
             )
           })
         }
