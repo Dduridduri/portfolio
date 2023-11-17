@@ -73,7 +73,7 @@ function Main() {
           Header.map((e,i)=>{
             return(
               <>              
-            <li key={i}  className='basis-[10%] px-4 cursor-pointer ' ><Link to={i} spy={true} smooth={true} offset={-100}>
+            <li key={i}  className='basis-[10%] px-4 cursor-pointer shadow-lg rounded-full' ><Link to={i} spy={true} smooth={true} offset={-100}>
                 <p style={bottom === true ? { color: 'black',zIndex:'50'} : null} className={`md:text-xl lg:text-2xl text-left text-white font-bold `}>{e}</p>       
             </Link>
             </li>
