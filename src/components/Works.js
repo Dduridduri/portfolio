@@ -163,7 +163,7 @@ function Works() {
   
   return (
     <>
-        <div id='2' className='w-[400px] lg:mx-auto md:overflow-hidden mt-10 relative sm:max-w-4xl sm:mt-5 md:max-w-2xl lg:max-w-3xl xl:max-w-6xl 2xl:max-w-full' >
+        <div id='2' className='w-[400px] lg:mx-auto md:overflow-hidden mt-10 relative sm:w-[700px] sm:mt-5 max-w-3xl xl:w-full 2xl:max-w-full' >
           <div className='w-full border h-[600px] bg-[#2e2e2e] relative'>            
             <button className='absolute text-black bottom-2 right-7 bg-slate-100  px-4 py-1 z-50'><Link to={detail}>방문하기</Link></button>
             <button className='absolute text-black bottom-12 right-7 bg-slate-100  px-4 py-1 text-center z-50' onMouseOver={()=>{setExplain(true);scrollToTop();}} onMouseLeave={()=>{setExplain(false)}}>설명보기</button>            
