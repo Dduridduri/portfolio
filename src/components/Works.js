@@ -75,7 +75,7 @@ const work = [
   {
     title:"Login",
     desc:"로그인 페이지",
-    desc2:"개발도구들의 간단한 이론적인 퀴즈를 풀어보세요!",
+    desc2:"파이어 베이스를 이용한 로그인기능을 구현한 페이지입니다.",
     tools: ["React", "FireBase", "MySQL"],
     date: "3일",
     img:"/images/1login.png",
@@ -85,8 +85,8 @@ const work = [
   },
   {
     title:"Board",
-    desc:"",
-    desc2:"개발도구들의 간단한 이론적인 퀴즈를 풀어보세요!",
+    desc:"게시판",
+    desc2:"파이어 베이스와 CKeditor라이브러리로 구현한 게시판 입니다.",
     tools: ["React", "FireBase", "MySQL", "CKeditor"],
     date: "5일",
     img:"/images/1board.png",
@@ -96,10 +96,10 @@ const work = [
   },
   {
     title:"Team Project",
-    desc:"",
-    desc2:"개발도구들의 간단한 이론적인 퀴즈를 풀어보세요!",
+    desc:"팀 프로젝트",
+    desc2:"HELLO! Vanilia! 프로젝트 페이지를 방문해보세요!",
     tools: ["React", "FireBase", "GIT", "Figma"],
-    date: "20일",
+    date: "30일",
     img:"/images/1team.png",
     img2:"/images/team2.png",
     link:"",
@@ -107,8 +107,8 @@ const work = [
   },
   {
     title:"Fortune Teller",
-    desc:"",
-    desc2:"개발도구들의 간단한 이론적인 퀴즈를 풀어보세요!",
+    desc:"운세정보",
+    desc2:"과연 나의 오늘 운세는?",
     tools: ["Nextjs", "TypeScript", "GIT"],
     date: "2일",
     img:"/images/1fortune.png",
@@ -118,8 +118,8 @@ const work = [
   },
   {
     title:"Festival INFO",
-    desc:"",
-    desc2:"개발도구들의 간단한 이론적인 퀴즈를 풀어보세요!",
+    desc:"페스티벌 정보",
+    desc2:"공공 API를 통해 구현한 페스티벌 정보 페이지 입니다.",
     tools: ["React", "API", "GIT"],
     date: "2일",
     img:"/images/1festival.png",
@@ -129,10 +129,10 @@ const work = [
   },
   {
     title:"Clone Coding",
-    desc:"",
-    desc2:"개발도구들의 간단한 이론적인 퀴즈를 풀어보세요!",
+    desc:"클론코딩",
+    desc2:"나이키 사이트 클론코딩페이지입니다. 가장먼저 완성한 프로젝트에요!",
     tools: ["HTML", "CSS", "JS"],
-    date: "2일",
+    date: "7일",
     img:"/images/coding.png",
     img2:"/images/clone.png",
     link:"",
@@ -144,7 +144,13 @@ const work = [
 function Works() {
   const [select, setSelect] = useState("");
   const [selectImg, setSelectImg]= useState("/images/qlink2.png");
-  const [detail, setDetail] = useState("")
+  const [detail, setDetail] = useState("");
+  const [desc, setDesc] = useState("");
+  const [desc2, setDesc2] = useState("");
+  const [tools, setTools] = useState("");
+  const [date, setDate] = useState("");
+  const [explain, setExplain] = useState(false);
+
   // const scrollContainerRef = useRef(null);
   // let scrollAnimation;
 
@@ -197,11 +203,22 @@ function Works() {
   // }, []);
   return (
     <>
-        <div id='2' className='max-w-[400px] 2xl:mx-auto xl:mx-auto md:overflow-hidden mt-10 relative sm:max-w-2xl sm:mt-5 md:max-w-[55%] lg:max-w-6xl xl:max-w-full 2xl:max-w-full px-4 ' >
-          <div className='w-full border h-[600px] bg-[#2e2e2e] relative'>
-            <button className='absolute text-black bottom-2 right-4 bg-slate-100 rounded-full px-4 py-1'><Link to={detail}>자세히 보기</Link></button>
-            <div className='w-[80%] h-full border-r-2 border-l-2 mx-auto bg-white overflow-auto scrollbar-hide'>
-              <img src={process.env.PUBLIC_URL + `${selectImg}`} alt={select} className='w-full h-auto'/>
+        <div id='2' className='max-w-[540px] lg:mx-auto mx-10 md: overflow-hidden mt-10 relative sm:max-w-full sm:mt-5 md:max-w-2xl lg:max-w-3xl xl:max-w-6xl 2xl:max-w-full' >
+          <div className='w-full border h-[600px] bg-[#2e2e2e] relative'>            
+            <button className='absolute text-black bottom-2 right-7 bg-slate-100  px-4 py-1'><Link to={detail}>방문하기</Link></button>
+            <button className='absolute text-black bottom-12 right-7 bg-slate-100  px-4 py-1 text-center' onMouseOver={()=>{setExplain(true)}} onMouseLeave={()=>{setExplain(false)}}>설명보기</button>            
+            <div className='w-[80%] h-full border-r-2 border-l-2 mx-auto bg-white overflow-auto scrollbar-hide relative'>
+              {explain === true &&
+                <div className='w-full absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%] text-center '>
+                  <h3 className='text-2xl sm:text-4xl font-bold text-center '>{desc}</h3>
+                  <h4 className='text-xl sm:text-2xl text-center mt-10'>{desc2}</h4>
+                  <p className='sm:text-xl py-2'>사용 기술: {tools[0]} {tools[1]} {tools[2]}</p>
+                  <p className='sm:text-xl py-2'>개발기간: {date}</p>
+                  <p></p>
+                </div>
+              }
+               <img src={process.env.PUBLIC_URL + `${selectImg}`} alt={select} className={`w-full h-auto ${!explain ? "" : "opacity-20"}`}/>   
+              {/* <img src={process.env.PUBLIC_URL + `${selectImg}`} alt={select} className='w-full h-auto'/> */}
             </div>
             
           </div>        
@@ -237,10 +254,18 @@ function Works() {
                   setSelect(i);
                   setSelectImg(e.img2);
                   setDetail(e.link);
+                  setDesc(e.desc)
+                  setDesc2(e.desc2)
+                  setTools(e.tools)
+                  setDate(e.date) 
                 }}onClick={()=>{
                   setSelect(i);
                   setSelectImg(e.img2);
-                  setDetail(e.link);               
+                  setDetail(e.link); 
+                  setDesc(e.desc)
+                  setDesc2(e.desc2)
+                  setTools(e.tools)
+                  setDate(e.date)              
                 }}className='h-52 border-box relative lg:w-full w-4/5'>
                   <img src={process.env.PUBLIC_URL + `${e.img}`} alt={e.title} className='w-full h-full object-cover hover:opacity-40'onMouseLeave={()=>{setSelect("")}}/>
                   </div>
