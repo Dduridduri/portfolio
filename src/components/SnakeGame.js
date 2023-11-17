@@ -62,8 +62,7 @@ function SnakeGame() {
         if (head.x >= COLS || head.x < 0 || head.y >= ROWS || head.y < 0) {
           setGameOver(true); // 게임 오버를 true로 설정합니다.
           return prevSnake;
-        }
-        
+        }        
         // 자기 자신에게 부딪혔는지 확인
         for (const segment of newSnake.slice(1)) {
           if (head.x === segment.x && head.y === segment.y) {
@@ -71,8 +70,6 @@ function SnakeGame() {
             return prevSnake;
           }
         }
-        
-       
         if (head.x === food.x && head.y === food.y) {
           setFood(getRandomCoord);
           newSnake.unshift(head);
@@ -80,7 +77,6 @@ function SnakeGame() {
           newSnake.unshift(head);
           newSnake.pop();
         }
-
         return newSnake;
       });
     };
@@ -97,7 +93,7 @@ function SnakeGame() {
   };
 
   return (
-    <>
+    <> 
       <div className="game-area translate-x-[50%] my-10" style={{
         width: COLS * CELL_SIZE,
         height: ROWS * CELL_SIZE,

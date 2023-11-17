@@ -23,7 +23,6 @@ function Main() {
     const handleResize = () => {
       setWindowWidth(window.innerWidth);
     };
-
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
@@ -35,9 +34,7 @@ function Main() {
     // 새 창을 열고, 지정된 크기로 설정
     window.open(pageUrl, '', `width=${width},height=${height}`);
   };
-  const getButtonStyle = (width) => {
-    return windowWidth <= width ? { color : 'green' } : {};
-  };
+
   
 
   useEffect(() => {
@@ -69,7 +66,7 @@ function Main() {
     <div className="overflow-hidden ">    
       <div ref={divRef} style={{ backgroundImage: `url(${process.env.PUBLIC_URL + '/images/IMG_8441.png'})`}} className='bg-cover bg-center bg-no-repeat h-screen w-screen'>
       <div className='' style={bottom === true ? { backgroundColor:'white'} : null} >   
-      <ul className='flex ml-[20%] justify-end mr-14 py-6  relative sm:right-10 font-bold ' style={bottom === true ? { position: 'fixed', color: 'black',zIndex:'50', transform: 'translateX(-10%)'} : null}>
+      <ul className='flex ml-[20%] justify-end mr-14 py-6  relative sm:right-10 font-bold transition-all duration-300 ' style={bottom === true ? { position: 'fixed', color: 'black',zIndex:'50', transform: 'translateX(-10%)'} : null}>
         {/* <li className='absolute left-7 top-[32px] after:absolute after:w-[2px] after:h-[120px] after:bg-black after:-right-[32px] after:-top-10'>
         </li> */}
         {

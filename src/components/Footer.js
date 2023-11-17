@@ -9,7 +9,7 @@ function Footer() {
         <p className="sm:text-2xl font-semibold text-left text-white ">CONTACT</p>
       </li>
       <li className='basis-[10%] px-4'>
-        <p className="sm:text-2xl font-semibold text-left text-gray-400 hover:text-white"><a href="https://github.com/Dduridduri/portfolio" target="_blank" rel="noopener noreferrer">GitHub</a></p>
+        <p className="sm:text-2xl font-semibold text-left text-gray-400 hover:text-white"><a href="https://github.com/Dduridduri" target="_blank" rel="noopener noreferrer">GitHub</a></p>
       </li>
       <li className='basis-[10%] px-4'>
         <p className="sm:text-2xl font-semibold text-left  text-gray-400 hover:text-white">KakaoTalk</p>
